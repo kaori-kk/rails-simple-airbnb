@@ -1,0 +1,24 @@
+<div class="nav-bar">
+  <h2>Simple Airbnb</h2>
+  <div>
+    <a href="#" class="btn btn-warning">Search</a>
+    <a href="flats/new" class="btn btn-primary">Add Flat</a>
+  </div>
+</div>
+
+  <h1>All our Flats (<%= @flats.count %>)</h1>
+<div class="container">
+  <div class="cards">
+      <% @flats.each do |flat| %>
+      <li><%= flat.name %></li>
+      <li><%= flat.address %></li>
+      <li><%= flat.description %></li>
+      <div class="two-icons">
+        <li><i class="fas fa-user-friends"></i><%= flat.price_per_night %></li>
+        <li><i class="fas fa-euro-sign"></i><%= flat.number_of_guests %></li>
+      </div>
+  </div>
+  <%= link_to "More Info", flat_path(flat) %>
+  <% end %>
+</div>
+
